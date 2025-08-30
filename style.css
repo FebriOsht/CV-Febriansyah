@@ -1,0 +1,721 @@
+/* Reset dan Font */
+*{margin:0;padding:0;box-sizing:border-box;}
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    background: linear-gradient(-45deg, #4ea14b, #283E51, #82c7ff, #121212);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    transition: background 0.5s;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Header Parallax */
+/* Header Container */
+header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: url('images/2.png') center/cover no-repeat fixed;
+}
+
+/* Background dengan blur dan animasi */
+.header-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('images/2.png') center/cover no-repeat fixed;
+  filter: blur(3px) brightness(0.8);
+  transform: scale(1.05); /* sedikit zoom untuk efek parallax */
+  animation: bgMove 20s infinite alternate;
+  z-index: -2;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); /* overlay gelap untuk dark mode */
+  opacity: 0; /* default tidak gelap */
+  transition: 0.5s;
+}
+
+@keyframes bgMove {
+  0% { transform: scale(1.05) translateX(0px) translateY(0px); }
+  50% { transform: scale(1.08) translateX(-20px) translateY(-10px); }
+  100% { transform: scale(1.05) translateX(0px) translateY(0px); }
+}
+
+/* Overlay untuk dark mode */
+.header-overlay {
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.3);
+  z-index:-1;
+  transition: background 0.5s ease;
+}
+
+/* Konten header */
+header {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;    /* vertical center */
+  text-align: center;
+  color: #fff;
+}
+
+.header-content {
+  z-index: 2; /* pastikan di atas background */
+}
+
+/* Nama dan deskripsi */
+.header-content h1 {
+    animation-delay: 0.3s;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 10px 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    text-shadow:
+    0 0 5px #42e695,
+    0 0 10px #42e695,
+    0 0 20px #fbff00;
+}
+
+.header-content p {
+    animation-delay: 1s;
+  font-size: 1.5rem;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+}
+
+/* Animasi sederhana */
+.header-content h1, .header-content p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlide 1s forwards;
+}
+
+.header-content h1 { animation-delay: 0.3s; }
+.header-content p  { animation-delay: 0.6s; }
+
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Foto Profil animasi hover */
+.profil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+.profil:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+
+/* Animasi teks masuk */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark mode support */
+body.dark-mode .header-overlay {
+  background: rgba(0,0,0,0.6);
+}
+
+body.dark-mode .header-content {
+  color: #ffd700;
+}
+
+body.dark-mode .header-bg {
+  filter: brightness(60%); /* lebih gelap tanpa menghilangkan gambar */
+}
+
+
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+  background-color: rgba(0,0,0,0.3); /* transparan, bisa ubah sesuai dark mode */
+  padding: 10px 20px;
+  border-radius: 30px;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Navbar Links */
+.navbar li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.navbar li a:hover {
+  background-color: #f39c12;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Active State Example */
+.navbar li a.active {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+/* Dark Mode Support */
+body.dark-mode .navbar {
+  background-color: rgba(30,30,30,0.5);
+}
+
+/* Smooth Shadow on Hover */
+.navbar li a:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+
+/* Sections */
+.section{padding:60px 20px;max-width:1000px;margin:auto;}
+.section h2{font-family:'Poppins', sans-serif;font-size:2rem;color:#4B79A1;margin-bottom:20px;position:relative;}
+.section h2::after{content:'';display:block;width:50px;height:3px;background:#4B79A1;margin-top:5px;border-radius:2px;}
+
+/* Skills */
+.skills-container{display:flex;flex-wrap:wrap;gap:15px;}
+.skill{background:#4B79A1;color:#fff;padding:10px 20px;border-radius:25px;transition:0.3s;}
+.skill:hover{background:#283E51;transform:scale(1.1);}
+
+/* Portfolio Grid */
+.portfolio-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.project{background:#fff;padding:20px;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition:transform 0.4s, box-shadow 0.4s;text-align:center;cursor:pointer;}
+.project:hover{transform:translateY(-10px);box-shadow:0 12px 25px rgba(0,0,0,0.2);}
+.project img{width:100%;border-radius:10px;margin-bottom:15px;}
+.project h3{margin-bottom:10px;color:#4B79A1;}
+
+/* Contact Links */
+#contact a {
+  color: #ffee00; /* warna utama */
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover efek */
+#contact a:hover {
+  text-decoration: none; /* tetap bersih, jangan underline */
+  color: #2600ff; /* warna hover sedikit lebih gelap */
+  transform: translateY(-2px); /* sedikit naik */
+}
+
+/* Underline animasi */
+#contact a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #4B79A1;
+  transition: width 0.3s ease;
+}
+
+#contact a:hover::after {
+  width: 100%;
+}
+
+#contact i {
+  margin-right: 8px;
+  color: #ffee00;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#contact a:hover i {
+  color: #355f8d;
+  transform: translateY(-2px);
+}
+
+.contact-intro {
+  max-width: 700px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #000000;
+}
+
+.contact-items {
+  gap: 20px;
+}
+
+.contact-item {
+  gap: 12px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  color: #4B79A1;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: #4B79A1;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+/* Footer */
+footer{background:#283E51;color:#fff;text-align:center;padding:20px;}
+
+/* Animasi Masuk */
+.animate{opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
+.animate.show{opacity:1;transform:translateY(0);}
+.animate-on-scroll{opacity:0;transform:translateY(50px);transition:all 0.8s ease-out;}
+.animate-on-scroll.show{opacity:1;transform:translateY(0);}
+
+/* Modal */
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);justify-content:center;align-items:center;}
+.modal-content{background:#fff;padding:30px;border-radius:15px;text-align:center;max-width:500px;position:relative;}
+.modal-content a{display:inline-block;margin-top:15px;padding:10px 20px;background:#4B79A1;color:#fff;border-radius:25px;text-decoration:none;transition:.3s;}
+.modal-content a:hover{background:#283E51;}
+.modal .close{position:absolute;top:15px;right:15px;font-size:1.5rem;cursor:pointer;}
+
+
+/* Dark Mode */
+body.dark-mode {
+    background: linear-gradient(-45deg, #121212, #1e1e1e, #282828, #1f1f1f);
+    background-size: 400% 400%;
+    animation: gradientBGDark 15s ease infinite;
+      background-color: #121212;
+  color: #f1f1f1;
+}
+
+@keyframes gradientBGDark {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+
+body.dark-mode header::before {
+  opacity: 1; /* aktifkan overlay saat dark mode */
+}
+
+body.dark-mode nav {
+    background: #1e1e1e;
+    box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+}
+body.dark-mode nav ul li a {
+    color: #e0e0e0;
+}
+body.dark-mode nav ul li a:hover {
+    color: #82c7ff;
+}
+body.dark-mode header {
+    color: #fff;
+    background-color: #1c1c1c;
+}
+body.dark-mode .section h2 {
+    color: #82c7ff;
+}
+body.dark-mode .skills-container .skill {
+    background: #282828;
+    color: #fff;
+}
+body.dark-mode .skills-container .skill:hover {
+    background: #3a3a3a;
+}
+body.dark-mode .portfolio-container .project {
+    background: #1f1f1f;
+    box-shadow: 0 8px 20px rgba(255,255,255,0.05);
+}
+body.dark-mode .portfolio-container .project:hover {
+    box-shadow: 0 12px 25px rgba(255,255,255,0.1);
+}
+body.dark-mode #contact a {
+    color: #82c7ff;
+}
+body.dark-mode footer {
+    background: #1e1e1e;
+}
+body.dark-mode .modal-content {
+    background: #1f1f1f;
+    color: #e0e0e0;
+}
+body.dark-mode .modal-content a {
+    background: #82c7ff;
+    color: #121212;
+}
+body.dark-mode .modal-content a:hover {
+    background: #4a90e2;
+}
+
+.parallax {
+    background-image: url('images/1.png');
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Tombol Dark Mode */
+#darkModeToggle {
+    background: #4B79A1; /* warna utama */
+    color: #fff; /* teks putih */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50px; /* bentuk bulat */
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    background: #283E51; /* warna gelap saat hover */
+    transform: scale(1.1); /* efek zoom */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+#darkModeToggle:focus {
+    outline: none;
+}
+
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.education-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .education-item {
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+}
+
+.social-media {
+  display: flex;
+  justify-content: center; /* Tengah horizontal */
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #4B79A1;
+  color: #ffee00ce;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .social-icon {
+  background: #1f1f1f;
+  color: #82c7ff;
+}
+
+body.dark-mode .social-icon:hover {
+  background: #283E51;
+}
+
+
+/* Toggle Switch */
+/* Toggle Switch with Icons */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background: #f1c40f;
+  border-radius: 50px;
+  top: 0; left: 0; right: 0; bottom: 0;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* Circle */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+  z-index: 2;
+}
+
+/* Icon */
+.icon {
+  font-size: 16px;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.4s ease;
+}
+
+.sun { color: #f39c12; }
+.moon { color: #34495e; }
+
+/* Checked state */
+input:checked + .slider {
+  background: #34495e;
+}
+
+input:checked + .slider::before {
+  transform: translateX(30px); /* geser lingkaran ke kanan */
+}
+
+input:checked + .slider .sun {
+  transform: scale(0); /* sembunyikan matahari */
+}
+
+input:checked + .slider .moon {
+  transform: scale(1.2); /* tampilkan bulan lebih besar */
+}
+
+/* Hover efek */
+.slider:hover::before {
+  transform: scale(1.1);
+}
+
+.trading-img {
+  width: 100%;       /* Sesuaikan dengan kontainer */
+  max-width: 200px;  /* Maksimal lebar gambar */
+  height: auto;      /* Tinggi otomatis agar proporsional */
+  margin: 5px;       /* Jarak antar gambar */
+  border-radius: 8px; /* Opsional: biar lebih rapi */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Opsional: efek bayangan */
+}
+.season-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Atur rata tengah */
+  gap: 10px; /* Jarak antar gambar */
+}
+
+.profil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(45deg, #ff6e6e, #f3f573, #68e642);
+  background-size: 300% 300%;
+  animation: gradientBorder 4s ease infinite;
+  box-shadow: 0 4px 15px rgb(255, 136, 0);
+}
+
+.profil:hover {
+  transform: scale(1.05); /* sedikit zoom saat hover */
+  box-shadow: 0 8px 25px rgb(94, 255, 0);
+}
+
+@keyframes gradientBorder {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(1.8); /* melebar secara horizontal */
+  font-size: 3rem;
+  color: #ffffff;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1eff00b2, 0 0 40px #ffcc00;
+  z-index: 3;
+}
+
+.scroll-down:hover {
+  color: lab(88.08% -83.11 83.6);
+  text-shadow: 0 0 20px #1eff00, 0 0 30px #1eff00, 0 0 40px #ffcc00, 0 0 50px #ffcc00;
+  transform: translateX(-50%) translateY(-10px) scaleX(1.9) scale(1.1); /* hover lebih melebar */
+}
+
+/* Animasi bounce */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) scaleX(1.8) translateY(0); }
+  40% { transform: translateX(-50%) scaleX(1.8) translateY(-15px); }
+  60% { transform: translateX(-50%) scaleX(1.8) translateY(-7px); }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Justify text dan beri spasi antar paragraf */
+#about p {
+    text-align: justify;       /* Rata kanan-kiri */
+    line-height: 1.7;          /* Jarak antar baris */
+    margin-bottom: 1.2em;      /* Spasi antar paragraf */
+    font-size: 1rem;           /* Ukuran font nyaman dibaca */
+    color: #000000;               /* Warna teks lebih lembut */
+}
+
+body.dark-mode .about-p {
+    text-align: justify;       /* Rata kanan-kiri */
+    line-height: 1.7;          /* Jarak antar baris */
+    margin-bottom: 1.2em;      /* Spasi antar paragraf */
+    font-size: 1rem;           /* Ukuran font nyaman dibaca */
+    color: #ffffff9a;               /* Warna teks lebih lembut */
+}
+
+.divider {
+  height: 2px;
+  background: linear-gradient(to right, #4B79A1, #ffd900);
+  margin: 20px 0;
+  border-radius: 2px;
+}
+
+/* Tombol Link persis style navbar */
+.header-link-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Hover Effect */
+.header-link-btn:hover {
+  background-color: #f39c12;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Dark Mode Support */
+body.dark-mode .header-link-btn {
+  background-color: rgba(30,30,30,0.5);
+  color: #fff;
+}
+
+body.dark-mode .header-link-btn:hover {
+  background-color: #e67e22;
+  color: #fff;
+}
