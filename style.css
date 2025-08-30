@@ -719,3 +719,124 @@ body.dark-mode .header-link-btn:hover {
   background-color: #e67e22;
   color: #fff;
 }
+
+/* Tombol OTHER */
+.header-link-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.header-link-btn:hover {
+  background-color: #f39c12;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+  background-color: rgba(0,0,0,0.3);
+  padding: 10px 20px;
+  border-radius: 30px;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar li a:hover {
+  background-color: #f39c12;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Tombol Hamburger */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1.8rem;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Mobile Menu (awal: tersembunyi) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  background: #f39c12;
+  border-radius: 8px;
+}
+
+/* Aktifkan saat dibuka */
+.mobile-menu.active {
+  right: 0;
+}
+
+/* Tampilkan hamburger hanya di mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    display: none; /* Sembunyikan navbar utama di mobile */
+  }
+}
