@@ -45,9 +45,7 @@ projects.forEach(project => {
         modalImage.src = imageSrc;
         modalImage.alt = title;
         
-        // Tampilkan elemen gambar. Jika ini bagian Trading Call (yang punya gambar di template), 
-        // kita bisa tambahkan logika CSS untuk mengatur tampilannya. 
-        // Untuk Proyek Website, kita tampilkan gambar utama.
+        // Tampilkan elemen gambar.
         modalImage.style.display = 'block';
 
         // Tampilkan modal
@@ -55,11 +53,15 @@ projects.forEach(project => {
     });
 });
 
-// Tutup modal
+// Tutup modal (Menangani semua tombol .close di semua .modal)
 document.querySelectorAll('.modal .close').forEach(span => {
     span.addEventListener('click', () => {
-        // Asumsi struktur: span -> modal-content -> modal
-        span.closest('.modal').style.display = 'none';
+        const modalElement = span.closest('.modal');
+        
+        // Cek apakah modalElement ditemukan
+        if (modalElement) {
+            modalElement.style.display = 'none';
+        } 
     });
 });
 
@@ -74,6 +76,7 @@ window.addEventListener('click', function(event) {
         otherModal.style.display = 'none';
     }
 });
+
 
 // --- Dark Mode Toggle (Diperbarui untuk mengatasi duplikasi ID) ---
 
