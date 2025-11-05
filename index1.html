@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV & Portofolio Febriansyah</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="images/DS Matrix.png">
+<style>
+/* CSS untuk Filter */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  background-color: var(--btn-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.filter-btn:hover {
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.portfolio-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.project {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+.project.hidden {
+  display: none;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* CSS untuk tema gelap */
+[data-theme="dark"] .filter-btn {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+[data-theme="dark"] .filter-btn.active {
+  background-color: #4a90e2;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-bg"></div>
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <img src="images/1000372407.jpg" alt="Foto Profil" class="profil">
+    <h1>Febriansyah</h1>
+    <p>Mahasiswa Teknik Informatika & Tech Ethusiast</p>
+
+    <a href="#about" class="scroll-down">
+      <i class="fas fa-arrow-down"></i>
+    </a>
+
+    <a href="https://febriosht.github.io/Febriansyah-Link/" class="header-link-btn">OTHER</a>
+  </div>
+</header>
+
+<!-- Tombol Hamburger -->
+<button class="hamburger" id="hamburger">
+  <i class="fas fa-bars"></i>
+</button>
+
+<!-- Mobile Navigation -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#">Profile</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#project">Project</a>
+  <a href="#tradingcall">Trade</a>
+  <a href="#contact">Contact</a>
+        <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider">
+          <span class="icon sun">🌞</span>
+          <span class="icon moon">🌙</span>
+        </span>
+      </label>
+</nav>
+
+
+<nav>
+  <ul class="navbar">
+    <li><a href="#">Profile</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#project">Project</a></li>
+    <li><a href="#tradingcall">Trade</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li>
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider">
+          <span class="icon sun">🌞</span>
+          <span class="icon moon">🌙</span>
+        </span>
+      </label>
+    </li>
+  </ul>
+</nav>
+
+
+
+<section id="about" class="section animate-on-scroll">
+  <h2>Tentang Saya</h2>
+  <h3>Halo! Saya <strong>Febriansyah</strong>, Mahasiswa Teknik Informatika di <em>Institut Informatika dan Bisnis Darmajaya</em>. Saya memiliki pengalaman mengembangkan website menggunakan <strong>HTML, CSS, JavaScript, PHP, API, Dll</strong>, serta tertarik mendalami <strong>perkembangan teknologi</strong>.</h3>
+
+  <h3>Saya menyukai tantangan dalam menciptakan solusi digital yang <strong>inovatif</strong>, mulai dari desain antarmuka yang menarik, pengalaman pengguna yang intuitif, hingga implementasi fitur interaktif yang kompleks. Saya juga senang menganalisis masalah, berpikir kreatif, dan terus belajar teknologi terbaru.</h3>
+
+  <h3>Saat ini, fokus saya adalah membangun <strong>portofolio proyek interaktif</strong> dan menjelajahi teknologi blockchain untuk masa depan digital yang lebih efisien dan cerdas.</h3>
+</section>
+
+
+
+
+<section id="education" class="section animate-on-scroll">
+  <h2>Pendidikan</h2>
+  <div class="education-container">
+    <div class="education-item">
+      <h3>SDN 1 TRI DHARMA WIRAJAYA</h3>
+      <p>(2009 – 2015)</p>
+      <p>Lokasi: <a href="https://maps.app.goo.gl/5oHWmCX3DrxPUcfb7" target="_blank">Tri Dharma Wirajaya, Kec. Banjar Agung, Lampung</a></p>
+    </div>
+    <div class="education-item">
+      <h3>SMPN 1 BANJAR AGUNG</h3>
+      <p>(2015 – 2018)</p>
+      <p>Lokasi: <a href="https://maps.app.goo.gl/TnQEzjnkViwomL2e6" target="_blank">Banjar Agung, Lampung</a></p>
+    </div>
+    <div class="education-item">
+      <h3>SMAN 1 BANJAR AGUNG</h3>
+      <p><strong>Jurusan IPS</strong> (2018 – 2021)</p>
+      <p>Lokasi: <a href="https://maps.app.goo.gl/cGdsdREtu3F2kVmq7" target="_blank">Moris Jaya, Banjar Agung, Lampung</a></p>
+    </div>
+    <div class="education-item">
+      <h3>INSTITUT INFORMATIKA DAN BISNIS DARMAJAYA</h3>
+      <p><strong>Teknik Informatika</strong> (2021 – Sekarang)</p>
+      <p>Lokasi: <a href="https://maps.app.goo.gl/FYBc3ERWkjkg2od28" target="_blank">Gedong Meneng, Bandar Lampung, Lampung</a></p>
+    </div>
+  </div>
+</section>
+
+
+<section id="skills" class="section animate-on-scroll">
+  <h2>Keahlian</h2>
+  <h3>Saya memiliki keahlian yang beragam dalam bidang pengembangan web dan teknologi digital:</h3>
+  <div class="skills-container">
+    <div class="skill">💻 Web Developer</div>
+    <div class="skill">🎨 Desain UI/UX</div>
+    <div class="skill">✏️ Editing Konten & Grafis</div>
+    <div class="skill">🤖 Prompt AI & Automasi</div>
+    <div class="skill">📊 Analisis Data & Problem Solving</div>
+  </div>
+</section>
+
+
+<section id="project" class="section animate-on-scroll">
+  <h2>Proyek Website</h2>
+  
+  <!-- Filter Buttons -->
+  <div class="filter-container">
+    <button class="filter-btn active" data-filter="all">Semua</button>
+    <button class="filter-btn" data-filter="crypto">Crypto & Trading</button>
+    <button class="filter-btn" data-filter="business">Bisnis & Perusahaan</button>
+    <button class="filter-btn" data-filter="personal">Personal & Portofolio</button>
+  </div>
+  
+  <div class="portfolio-container">
+
+    <!-- Crypto Directory Indonesia -->
+    <div class="project crypto" data-title="Crypto Directory Indonesia" data-link="https://cryptodirectoryindonesia.io/">
+      <img src="images/Crypto Directory Indonesia.png" alt="Crypto Directory Indonesia">
+      <h3>Crypto Directory Indonesia</h3>
+      <template>
+        <p>Website edukasi dan direktori komunitas cryptocurrency di Indonesia.</p>
+      </template>
+    </div>
+
+    <div class="project crypto" data-title="Global Chat" data-link="https://chatglobal.cryptodirectoryindonesia.io/">
+      <img src="images/Global Chat.jpg" alt="Global Chat">
+      <h3>Global Chat</h3>
+      <template>
+        <p>Bergabung & Berinteraksi dalam Komunitas — Fitur chat global memungkinkan anggota saling berdiskusi, berbagi update, dan menjalin koneksi</p>
+        <p>Global Chat</p>
+      </template>
+    </div>
+
+    <!-- Bintang Terang Makmur -->
+    <div class="project business" data-title="Bintang Terang Makmur" data-link="http://bintangterangmakmur.xo.je/">
+      <img src="images/Bintang Terang Makmur.png" alt="Bintang Terang Makmur">
+      <h3>Bintang Terang Makmur</h3>
+      <template>
+        <p>Website perusahaan BTM untuk profil dan layanan.</p>
+      </template>
+    </div>
+
+    <!-- Febriansyah-Link -->
+    <div class="project personal" data-title="Febriansyah-Link" data-link="https://febriosht.github.io/Febriansyah-Link/">
+      <img src="images/Febriansyah-Link.png" alt="Febriansyah Link">
+      <h3>Febriansyah-Link</h3>
+      <template>
+        <p>Website link personal dan showcase proyek.</p>
+      </template>
+    </div>
+
+    <!-- BabyyBossssss -->
+    <div class="project personal" data-title="BabyyBossssss" data-link="https://febriosht.github.io/Djarum-Slayer/">
+      <img src="images/BabyyBossssss.png" alt="BabyyBossssss">
+      <h3>BabyyBossssss</h3>
+      <template>
+        <p>Portofolio dan website personal BabyyBossssss.</p>
+      </template>
+    </div>
+
+    <div class="project crypto" data-title="Jurnal Trading" data-link="https://jurnaltrading.cryptodirectoryindonesia.io/">
+      <img src="images/Jurnal Trading.png" alt="Jurnal Trading">
+      <h3>Jurnal Trading</h3>
+      <template>
+        <p>Membantu trader penggemar teknikal maupun fundamental — dari catatan harian, analisis pasar terkini, hingga refleksi pribadi yang jujur.</p>
+      </template>
+    </div>
+
+    <div class="project business" data-title="Cyber Web Scanner" data-link="https://cyberwebscanner.onrender.com">
+      <img src="images/Cyber-Web-Scanner.png" alt="Cyber Web Scanner">
+      <h3>Cyber Web Scanner</h3>
+      <template>
+        <p>Platform pemindaian web yang andal dan mudah digunakan untuk semua level pengguna</p>
+      </template>
+    </div>
+
+    <div class="project business" data-title="Mochi Chewy" data-link="https://febriosht.github.io/Mochi-Chewy/index.html">
+      <img src="images/Mochi Chewy.png" alt="Mochi Chewy">
+      <h3>Mochi Chewy</h3>
+      <template>
+        <p>MOCHI CHEWY hadir dengan tekstur chewy level dewa dan isian lumer yang meledak di mulut</p>
+      </template>
+    </div>
+
+    <div class="project business" data-title="Flora Rose Catering" data-link="https://febriosht.github.io/Flora-Rose-Catering/">
+      <img src="images/Flora Rose Catering.png" alt="Flora Rose Catering">
+      <h3>Flora Rose Catering</h3>
+      <template>
+        <p>Layanan katering & supplier yang telah berpengalaman lebih dari 9 tahun.</p>
+      </template>
+    </div>
+
+    <div class="project business" data-title="Cassa Juara" data-link="https://profile-pos.vercel.app/">
+      <img src="images/Cassa-Juara.png" alt="Cassa Juara">
+      <h3>Cassa Juara</h3>
+      <template>
+        <p>Cita Rasa Juara, Bikin Ketagihan!</p>
+        <p>Jajanan sehat tanpa pengawet, halal & thayyib, gurih, aman untuk seisi keluarga. Pesan sekarang dan rasakan bedanya!</p>
+      </template>
+    </div>
+
+    <div class="project business" data-title="Cassa Juara" data-link="https://cassa-juara.vercel.app/">
+      <img src="images/Kasir.png" alt="Sistem Point of Sale (POS)">
+      <h3>Profile (POS) Swakarsa Digital Indonesia</h3>
+      <template>
+        <p>Profile Projek dari Swakarsa Digital Indonesia</p>
+        <p>Sistem Point of Sale (POS)</p>
+      </template>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="tradingcall" class="section animate-on-scroll">
+  <h2>TRADING CALL</h2>
+  <div class="portfolio-container">
+
+    <!-- SEASON 1 -->
+    <div class="project" data-title="TRADING CALL - SEASON 1" data-link="https://www.threads.com/@03.febriansyah/post/DKEO9VuTa__?xmt=AQF0YYN_OA4i-OG-YxdCVq1vXdx6Prj4ndfcKIKW3ItmQQ&slof=1">
+      <img src="images/SEASON 1.jpg" alt="SEASON 1">
+      <h3>SEASON 1</h3>
+      <template>
+        <div class="season-images">
+          <img src="images/S11.jpg" class="trading-img">
+          <img src="images/S12.jpg" class="trading-img">
+          <img src="images/S13.jpg" class="trading-img">
+          <img src="images/S14.jpg" class="trading-img">
+          <img src="images/S15.jpg" class="trading-img">
+        </div>
+      </template>
+    </div>
+
+    <!-- SEASON 2 -->
+    <div class="project" data-title="TRADING CALL - SEASON 2" data-link="https://www.threads.com/@03.febriansyah/post/DKEPGbQzPOR?xmt=AQF0kVNjjMXLU9-B5WYFdj0zSSZ8Z7tqSohC0_Q9b8hUlQ&slof=1">
+      <img src="images/SEASON 2.jpg" alt="SEASON 2">
+      <h3>SEASON 2</h3>
+      <template>
+        <div class="season-images">
+          <img src="images/S21.jpg" class="trading-img">
+          <img src="images/S22.jpg" class="trading-img">
+          <img src="images/S23.jpg" class="trading-img">
+          <img src="images/S24.jpg" class="trading-img">
+          <img src="images/S25.jpg" class="trading-img">
+        </div>
+      </template>
+    </div>
+
+    <!-- SEASON 3 -->
+    <div class="project" data-title="TRADING CALL - SEASON 3" data-link="https://www.threads.com/@03.febriansyah/post/DMK0u3nzT5j?xmt=AQF0ULEwAqSZuYmLmgbciJAnUOexZkEk0AW5DylOjuJjmA&slof=1">
+      <img src="images/SEASON 3.jpg" alt="SEASON 3">
+      <h3>SEASON 3</h3>
+      <template>
+        <div class="season-images">
+          <img src="images/S31.jpg" class="trading-img">
+          <img src="images/S32.jpg" class="trading-img">
+          <img src="images/S33.jpg" class="trading-img">
+          <img src="images/S34.jpg" class="trading-img">
+          <img src="images/S35.jpg" class="trading-img">
+        </div>
+      </template>
+    </div>
+
+    <!-- SEASON 4 -->
+    <div class="project" data-title="TRADING CALL - SEASON 4" data-link="https://www.threads.com/@03.febriansyah/post/DNVjw4KzXEU?xmt=AQF0QUwHZXowXmqw7B7_rZzcokXafeXOg9Y_lf43cVARmA&slof=1">
+      <img src="images/SEASON 4.jpg" alt="SEASON 4">
+      <h3>SEASON 4</h3>
+      <template>
+        <div class="season-images">
+          <img src="images/S41.jpg" class="trading-img">
+          <img src="images/S42.jpg" class="trading-img">
+          <img src="images/S43.jpg" class="trading-img">
+          <img src="images/S44.jpg" class="trading-img">
+          <img src="images/S45.jpg" class="trading-img">
+        </div>
+      </template>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section id="contact" class="section animate-on-scroll">
+  <h2 class="section-title">Kontak</h2>
+
+  <hr class="divider">
+
+  <h3>Jika Anda tertarik untuk bekerja sama atau ingin berdiskusi lebih lanjut mengenai proyek dan pengalaman saya, silakan hubungi saya melalui:</h3>
+
+  <div class="contact-items">
+    <div class="contact-item">
+      <i class="fas fa-envelope contact-icon"></i>
+      <a href="mailto:febbriansyah01@gmail.com?subject=Halo%20Febriansyah&body=Saya%20ingin%20berkolaborasi" class="contact-link">febbriansyah01@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <i class="fab fa-linkedin contact-icon"></i>
+      <a href="https://www.linkedin.com/in/febriansyah-osht-347b112a4/" target="_blank" class="contact-link">Febriansyah</a>
+    </div>
+  </div>
+
+    <hr class="divider">
+</section>
+
+<section>
+  <h3 style="text-align:center;">Sosial Media</h3>
+  <div class="social-media">
+    <a href="https://github.com/FebriOsht" target="_blank" class="social-icon" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://x.com/BabyyBossssss" target="_blank" class="social-icon" title="𝕏">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+    <a href="https://www.instagram.com/03.febriansyah" target="_blank" class="social-icon" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://t.me/MotivasiDS" target="_blank" class="social-icon" title="Telegram">
+      <i class="fab fa-telegram"></i>
+    </a>
+    <a href="https://whatsapp.com/channel/0029VawpOWVEAKW5aqMdLQ42" target="_blank" class="social-icon" title="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://www.threads.com/@03.febriansyah" target="_blank" class="social-icon" title="Threads">
+      <i class="fab fa-threads"></i>
+    </a>
+  </div>
+</section>
+
+
+<!-- Modal -->
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-project-modal">×</span>
+    <img id="modal-image" src="" alt="Gambar Proyek" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; display: none;">
+    <h3 id="modal-title"></h3>
+    <div id="modal-desc"></div>
+    <a id="modal-link" href="#" target="_blank">LIHAT PROYEK</a>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Detail Proyek</h2>
+        <p>Informasi tentang proyek Anda...</p>
+        <button id="myBtn">Lihat Proyek</button>
+    </div>
+</div>
+
+
+<footer>
+  <p>&copy; 2025 Febriansyah. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// JavaScript untuk Filter Proyek Website
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('#project .filter-btn');
+  const websiteProjects = document.querySelectorAll('#project .project');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Hapus kelas active dari semua tombol di section project
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Tambah kelas active ke tombol yang diklik
+      this.classList.add('active');
+      
+      const filterValue = this.getAttribute('data-filter');
+      
+      // Filter proyek website saja
+      websiteProjects.forEach(project => {
+        if (filterValue === 'all') {
+          project.classList.remove('hidden');
+        } else {
+          if (project.classList.contains(filterValue)) {
+            project.classList.remove('hidden');
+          } else {
+            project.classList.add('hidden');
+          }
+        }
+      });
+    });
+  });
+});
+</script>
+
+</body>
+</html>
