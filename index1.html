@@ -14,59 +14,180 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 30px;
+  gap: 15px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(75, 121, 161, 0.1), rgba(255, 217, 0, 0.1));
+  z-index: -1;
 }
 
 .filter-btn {
-  padding: 8px 16px;
+  padding: 12px 24px;
   background-color: var(--btn-bg);
   color: var(--text-color);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border: 2px solid transparent;
+  border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 14px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 15px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4B79A1, #283E51);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  border-radius: 30px;
 }
 
 .filter-btn:hover {
-  background-color: var(--btn-hover);
-  transform: translateY(-2px);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(75, 121, 161, 0.3);
+  border-color: #4B79A1;
+}
+
+.filter-btn:hover::before {
+  transform: scaleX(1);
 }
 
 .filter-btn.active {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #4B79A1, #283E51);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(75, 121, 161, 0.4);
+  border-color: #4B79A1;
 }
 
+.filter-btn.active:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(75, 121, 161, 0.5);
+}
+
+/* Animasi untuk transisi proyek */
 .portfolio-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 25px;
+  transition: all 0.5s ease;
 }
 
 .project {
   display: block;
   opacity: 1;
   transform: scale(1);
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .project.hidden {
   display: none;
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.8);
+}
+
+/* Efek ripple pada tombol */
+.filter-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.filter-btn:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
 }
 
 /* CSS untuk tema gelap */
+[data-theme="dark"] .filter-container {
+  background: rgba(30, 30, 30, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
 [data-theme="dark"] .filter-btn {
   background-color: #333;
   color: #fff;
   border-color: #555;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .filter-btn::before {
+  background: linear-gradient(135deg, #82c7ff, #4a90e2);
+}
+
+[data-theme="dark"] .filter-btn:hover {
+  border-color: #82c7ff;
+  box-shadow: 0 10px 20px rgba(130, 199, 255, 0.2);
 }
 
 [data-theme="dark"] .filter-btn.active {
-  background-color: #4a90e2;
+  background: linear-gradient(135deg, #82c7ff, #4a90e2);
+  box-shadow: 0 8px 20px rgba(130, 199, 255, 0.3);
+}
+
+[data-theme="dark"] .filter-btn.active:hover {
+  box-shadow: 0 12px 25px rgba(130, 199, 255, 0.4);
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+  .filter-container {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .filter-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
 }
 </style>
 </head>
