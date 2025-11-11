@@ -189,6 +189,97 @@
     font-size: 14px;
   }
 }
+
+  /* Styling untuk bagian About */
+.about-content {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.about-paragraph {
+  text-align: justify;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+  font-size: 1.1rem;
+  color: #333;
+  padding: 0 10px;
+  position: relative;
+}
+
+.about-paragraph:first-child::first-letter {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4B79A1;
+  float: left;
+  line-height: 1;
+  margin-right: 8px;
+  margin-top: 5px;
+}
+
+.about-paragraph strong {
+  color: #4B79A1;
+  font-weight: 700;
+}
+
+.about-paragraph em {
+  color: #283E51;
+  font-style: italic;
+}
+
+/* Efek hover halus pada paragraf */
+.about-paragraph:hover {
+  transform: translateX(5px);
+  transition: transform 0.3s ease;
+}
+
+/* Garis pemisah antar paragraf */
+.about-paragraph:not(:last-child)::after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #4B79A1, transparent);
+  margin: 1.5em auto 0;
+}
+
+/* Dark mode support */
+body.dark-mode .about-paragraph {
+  color: #e0e0e0;
+}
+
+body.dark-mode .about-paragraph strong {
+  color: #82c7ff;
+}
+
+body.dark-mode .about-paragraph em {
+  color: #a8d8ff;
+}
+
+body.dark-mode .about-paragraph:first-child::first-letter {
+  color: #82c7ff;
+}
+
+body.dark-mode .about-paragraph:not(:last-child)::after {
+  background: linear-gradient(to right, transparent, #82c7ff, transparent);
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+  .about-paragraph {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.6;
+    margin-bottom: 1.2em;
+  }
+  
+  .about-paragraph:first-child::first-letter {
+    font-size: 2rem;
+  }
+  
+  .about-paragraph:not(:last-child)::after {
+    width: 90%;
+  }
+}
 </style>
 </head>
 <body>
@@ -256,11 +347,14 @@
 
 <section id="about" class="section animate-on-scroll">
   <h2>Tentang Saya</h2>
-  <h3>Halo! Saya <strong>Febriansyah</strong>, Mahasiswa Teknik Informatika di <em>Institut Informatika dan Bisnis Darmajaya</em>. Saya memiliki pengalaman mengembangkan website menggunakan <strong>HTML, CSS, JavaScript, PHP, API, Dll</strong>, serta tertarik mendalami <strong>perkembangan teknologi</strong>.</h3>
+  
+  <div class="about-content">
+    <p class="about-paragraph">Halo! Saya <strong>Febriansyah</strong>, Mahasiswa Teknik Informatika di <em>Institut Informatika dan Bisnis Darmajaya</em>. Saya memiliki pengalaman mengembangkan website menggunakan <strong>HTML, CSS, JavaScript, PHP, API, Dll</strong>, serta tertarik mendalami <strong>perkembangan teknologi</strong>.</p>
 
-  <h3>Saya menyukai tantangan dalam menciptakan solusi digital yang <strong>inovatif</strong>, mulai dari desain antarmuka yang menarik, pengalaman pengguna yang intuitif, hingga implementasi fitur interaktif yang kompleks. Saya juga senang menganalisis masalah, berpikir kreatif, dan terus belajar teknologi terbaru.</h3>
+    <p class="about-paragraph">Saya menyukai tantangan dalam menciptakan solusi digital yang <strong>inovatif</strong>, mulai dari desain antarmuka yang menarik, pengalaman pengguna yang intuitif, hingga implementasi fitur interaktif yang kompleks. Saya juga senang menganalisis masalah, berpikir kreatif, dan terus belajar teknologi terbaru.</p>
 
-  <h3>Saat ini, fokus saya adalah membangun <strong>portofolio proyek interaktif</strong> dan menjelajahi teknologi blockchain untuk masa depan digital yang lebih efisien dan cerdas.</h3>
+    <p class="about-paragraph">Saat ini, fokus saya adalah membangun <strong>portofolio proyek interaktif</strong> dan menjelajahi teknologi blockchain untuk masa depan digital yang lebih efisien dan cerdas.</p>
+  </div>
 </section>
 
 
