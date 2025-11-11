@@ -9,186 +9,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 <link rel="icon" href="images/DS Matrix.png">
 <style>
-/* CSS untuk Filter yang Lebih Menarik */
+/* CSS untuk Filter */
 .filter-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 40px;
-  position: relative;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
 .filter-btn {
-  position: relative;
-  padding: 12px 24px;
-  background-color: transparent;
+  padding: 8px 16px;
+  background-color: var(--btn-bg);
   color: var(--text-color);
-  border: 2px solid var(--primary-color);
-  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  font-size: 15px;
-  font-weight: 600;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.filter-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background: var(--primary-color);
-  transition: all 0.4s ease;
-  z-index: -1;
-  border-radius: 30px;
-}
-
-.filter-btn:hover::before {
-  width: 100%;
+  transition: all 0.3s ease;
+  font-size: 14px;
 }
 
 .filter-btn:hover {
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
 }
 
 .filter-btn.active {
   background-color: var(--primary-color);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.filter-btn.active::before {
-  width: 100%;
-}
-
-/* Efek ripple saat diklik */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
-  transform: scale(0);
-  animation: ripple 0.6s linear;
-  pointer-events: none;
-}
-
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-/* Animasi counter untuk jumlah proyek */
-.filter-btn .count {
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  line-height: 22px;
-  text-align: center;
-  font-size: 12px;
-  margin-left: 8px;
-  transition: all 0.3s ease;
-}
-
-.filter-btn.active .count {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
-}
-
-/* Animasi untuk transisi proyek */
 .portfolio-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
+  gap: 20px;
 }
 
 .project {
   display: block;
   opacity: 1;
   transform: scale(1);
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s ease;
 }
 
 .project.hidden {
   display: none;
   opacity: 0;
-  transform: scale(0.8);
+  transform: scale(0.9);
 }
 
 /* CSS untuk tema gelap */
 [data-theme="dark"] .filter-btn {
-  border-color: #4a90e2;
-  color: #e0e0e0;
-}
-
-[data-theme="dark"] .filter-btn::before {
-  background: #4a90e2;
-}
-
-[data-theme="dark"] .filter-btn:hover {
-  color: white;
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
 }
 
 [data-theme="dark"] .filter-btn.active {
   background-color: #4a90e2;
-  box-shadow: 0 8px 15px rgba(74, 144, 226, 0.3);
-}
-
-/* Animasi loading saat filter berubah */
-.filter-loading {
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), #ffcc00, var(--primary-color));
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite linear;
-  border-radius: 3px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.filter-loading.active {
-  opacity: 1;
-}
-
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-/* Responsif untuk mobile */
-@media (max-width: 768px) {
-  .filter-container {
-    gap: 10px;
-  }
-  
-  .filter-btn {
-    padding: 10px 18px;
-    font-size: 14px;
-  }
-  
-  .filter-btn .count {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    font-size: 11px;
-  }
 }
 </style>
 </head>
@@ -321,7 +199,7 @@
   <div class="portfolio-container">
 
     <!-- Crypto Directory Indonesia -->
-    <div class="personal" data-title="Crypto Directory Indonesia" data-link="https://cryptodirectoryindonesia.io/">
+    <div class="project personal" data-title="Crypto Directory Indonesia" data-link="https://cryptodirectoryindonesia.io/">
       <img src="images/Crypto Directory Indonesia.png" alt="Crypto Directory Indonesia">
       <h3>Crypto Directory Indonesia</h3>
       <template>
@@ -329,7 +207,7 @@
       </template>
     </div>
 
-    <div class="personal" data-title="Global Chat" data-link="https://chatglobal.cryptodirectoryindonesia.io/">
+    <div class="project personal" data-title="Global Chat" data-link="https://chatglobal.cryptodirectoryindonesia.io/">
       <img src="images/Global Chat.jpg" alt="Global Chat">
       <h3>Global Chat</h3>
       <template>
@@ -339,7 +217,7 @@
     </div>
 
     <!-- Bintang Terang Makmur -->
-    <div class="business" data-title="Bintang Terang Makmur" data-link="http://bintangterangmakmur.xo.je/">
+    <div class="project business" data-title="Bintang Terang Makmur" data-link="http://bintangterangmakmur.xo.je/">
       <img src="images/Bintang Terang Makmur.png" alt="Bintang Terang Makmur">
       <h3>Bintang Terang Makmur</h3>
       <template>
@@ -348,7 +226,7 @@
     </div>
 
     <!-- Febriansyah-Link -->
-    <div class="personal" data-title="Febriansyah-Link" data-link="https://febriosht.github.io/Febriansyah-Link/">
+    <div class="project personal" data-title="Febriansyah-Link" data-link="https://febriosht.github.io/Febriansyah-Link/">
       <img src="images/Febriansyah-Link.png" alt="Febriansyah Link">
       <h3>Febriansyah-Link</h3>
       <template>
@@ -357,7 +235,7 @@
     </div>
 
     <!-- BabyyBossssss -->
-    <div class="personal" data-title="BabyyBossssss" data-link="https://febriosht.github.io/Djarum-Slayer/">
+    <div class="project personal" data-title="BabyyBossssss" data-link="https://febriosht.github.io/Djarum-Slayer/">
       <img src="images/BabyyBossssss.png" alt="BabyyBossssss">
       <h3>BabyyBossssss</h3>
       <template>
@@ -365,7 +243,7 @@
       </template>
     </div>
 
-    <div class="personal" data-title="Jurnal Trading" data-link="https://jurnaltrading.cryptodirectoryindonesia.io/">
+    <div class="project personal" data-title="Jurnal Trading" data-link="https://jurnaltrading.cryptodirectoryindonesia.io/">
       <img src="images/Jurnal Trading.png" alt="Jurnal Trading">
       <h3>Jurnal Trading</h3>
       <template>
@@ -373,7 +251,7 @@
       </template>
     </div>
 
-    <div class="personal" data-title="Cyber Web Scanner" data-link="https://cyberwebscanner.onrender.com">
+    <div class="project personal" data-title="Cyber Web Scanner" data-link="https://cyberwebscanner.onrender.com">
       <img src="images/Cyber-Web-Scanner.png" alt="Cyber Web Scanner">
       <h3>Cyber Web Scanner</h3>
       <template>
@@ -381,7 +259,7 @@
       </template>
     </div>
 
-    <div class="business" data-title="Mochi Chewy" data-link="https://febriosht.github.io/Mochi-Chewy/index.html">
+    <div class="project business" data-title="Mochi Chewy" data-link="https://febriosht.github.io/Mochi-Chewy/index.html">
       <img src="images/Mochi Chewy.png" alt="Mochi Chewy">
       <h3>Mochi Chewy</h3>
       <template>
@@ -389,7 +267,7 @@
       </template>
     </div>
 
-    <div class="business" data-title="Flora Rose Catering" data-link="https://febriosht.github.io/Flora-Rose-Catering/">
+    <div class="project business" data-title="Flora Rose Catering" data-link="https://febriosht.github.io/Flora-Rose-Catering/">
       <img src="images/Flora Rose Catering.png" alt="Flora Rose Catering">
       <h3>Flora Rose Catering</h3>
       <template>
@@ -397,7 +275,7 @@
       </template>
     </div>
 
-    <div class="business" data-title="Cassa Juara" data-link="https://profile-pos.vercel.app/">
+    <div class="project business" data-title="Cassa Juara" data-link="https://profile-pos.vercel.app/">
       <img src="images/Cassa-Juara.png" alt="Cassa Juara">
       <h3>Cassa Juara</h3>
       <template>
@@ -406,7 +284,7 @@
       </template>
     </div>
 
-    <div class="business" data-title="Cassa Juara" data-link="https://cassa-juara.vercel.app/">
+    <div class="project business" data-title="Cassa Juara" data-link="https://cassa-juara.vercel.app/">
       <img src="images/Kasir.png" alt="Sistem Point of Sale (POS)">
       <h3>Profile (POS) Swakarsa Digital Indonesia</h3>
       <template>
@@ -563,55 +441,13 @@
 
 <script src="script.js"></script>
 <script>
-// JavaScript untuk Filter Proyek Website yang Lebih Interaktif
+// JavaScript untuk Filter Proyek Website
 document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('#project .filter-btn');
   const websiteProjects = document.querySelectorAll('#project .project');
-  const filterLoading = document.querySelector('.filter-loading');
-  
-  // Hitung jumlah proyek per kategori
-  function updateProjectCounts() {
-    const allCount = document.querySelectorAll('#project .project').length;
-    const businessCount = document.querySelectorAll('#project .project.business').length;
-    const personalCount = document.querySelectorAll('#project .project.personal').length;
-    
-    document.querySelector('[data-filter="all"] .count').textContent = allCount;
-    document.querySelector('[data-filter="business"] .count').textContent = businessCount;
-    document.querySelector('[data-filter="personal"] .count').textContent = personalCount;
-  }
-  
-  // Panggil fungsi untuk pertama kali
-  updateProjectCounts();
-  
-  // Efek ripple saat tombol diklik
-  function createRipple(event) {
-    const button = event.currentTarget;
-    const circle = document.createElement("span");
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
-    
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
-    circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
-    circle.classList.add("ripple");
-    
-    const ripple = button.getElementsByClassName("ripple")[0];
-    
-    if (ripple) {
-      ripple.remove();
-    }
-    
-    button.appendChild(circle);
-  }
   
   filterButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-      // Tambah efek ripple
-      createRipple(e);
-      
-      // Tampilkan loading indicator
-      filterLoading.classList.add('active');
-      
+    button.addEventListener('click', function() {
       // Hapus kelas active dari semua tombol di section project
       filterButtons.forEach(btn => btn.classList.remove('active'));
       
@@ -620,24 +456,18 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const filterValue = this.getAttribute('data-filter');
       
-      // Simulasi loading dengan timeout
-      setTimeout(() => {
-        // Filter proyek website saja
-        websiteProjects.forEach(project => {
-          if (filterValue === 'all') {
+      // Filter proyek website saja
+      websiteProjects.forEach(project => {
+        if (filterValue === 'all') {
+          project.classList.remove('hidden');
+        } else {
+          if (project.classList.contains(filterValue)) {
             project.classList.remove('hidden');
           } else {
-            if (project.classList.contains(filterValue)) {
-              project.classList.remove('hidden');
-            } else {
-              project.classList.add('hidden');
-            }
+            project.classList.add('hidden');
           }
-        });
-        
-        // Sembunyikan loading indicator
-        filterLoading.classList.remove('active');
-      }, 500); // 500ms untuk efek loading
+        }
+      });
     });
   });
 });
