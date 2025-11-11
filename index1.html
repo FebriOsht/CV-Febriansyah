@@ -314,14 +314,14 @@
   <div class="filter-container">
     <button class="filter-btn active" data-filter="all">Semua</button>
     <!--<button class="filter-btn" data-filter="crypto">Crypto & Trading</button>-->
-    <button class="filter-btn" data-filter="project business">Bisnis & Perusahaan</button>
-    <button class="filter-btn" data-filter="project personal">Personal & Portofolio</button>
+    <button class="filter-btn" data-filter="business">Bisnis & Perusahaan</button>
+    <button class="filter-btn" data-filter="personal">Personal & Portofolio</button>
   </div>
   
   <div class="portfolio-container">
 
     <!-- Crypto Directory Indonesia -->
-    <div class="project personal" data-title="Crypto Directory Indonesia" data-link="https://cryptodirectoryindonesia.io/">
+    <div class="personal" data-title="Crypto Directory Indonesia" data-link="https://cryptodirectoryindonesia.io/">
       <img src="images/Crypto Directory Indonesia.png" alt="Crypto Directory Indonesia">
       <h3>Crypto Directory Indonesia</h3>
       <template>
@@ -329,7 +329,7 @@
       </template>
     </div>
 
-    <div class="project personal" data-title="Global Chat" data-link="https://chatglobal.cryptodirectoryindonesia.io/">
+    <div class="personal" data-title="Global Chat" data-link="https://chatglobal.cryptodirectoryindonesia.io/">
       <img src="images/Global Chat.jpg" alt="Global Chat">
       <h3>Global Chat</h3>
       <template>
@@ -339,7 +339,7 @@
     </div>
 
     <!-- Bintang Terang Makmur -->
-    <div class="project business" data-title="Bintang Terang Makmur" data-link="http://bintangterangmakmur.xo.je/">
+    <div class="business" data-title="Bintang Terang Makmur" data-link="http://bintangterangmakmur.xo.je/">
       <img src="images/Bintang Terang Makmur.png" alt="Bintang Terang Makmur">
       <h3>Bintang Terang Makmur</h3>
       <template>
@@ -348,7 +348,7 @@
     </div>
 
     <!-- Febriansyah-Link -->
-    <div class="project personal" data-title="Febriansyah-Link" data-link="https://febriosht.github.io/Febriansyah-Link/">
+    <div class="personal" data-title="Febriansyah-Link" data-link="https://febriosht.github.io/Febriansyah-Link/">
       <img src="images/Febriansyah-Link.png" alt="Febriansyah Link">
       <h3>Febriansyah-Link</h3>
       <template>
@@ -357,7 +357,7 @@
     </div>
 
     <!-- BabyyBossssss -->
-    <div class="project personal" data-title="BabyyBossssss" data-link="https://febriosht.github.io/Djarum-Slayer/">
+    <div class="personal" data-title="BabyyBossssss" data-link="https://febriosht.github.io/Djarum-Slayer/">
       <img src="images/BabyyBossssss.png" alt="BabyyBossssss">
       <h3>BabyyBossssss</h3>
       <template>
@@ -365,7 +365,7 @@
       </template>
     </div>
 
-    <div class="project personal" data-title="Jurnal Trading" data-link="https://jurnaltrading.cryptodirectoryindonesia.io/">
+    <div class="personal" data-title="Jurnal Trading" data-link="https://jurnaltrading.cryptodirectoryindonesia.io/">
       <img src="images/Jurnal Trading.png" alt="Jurnal Trading">
       <h3>Jurnal Trading</h3>
       <template>
@@ -373,7 +373,7 @@
       </template>
     </div>
 
-    <div class="project personal" data-title="Cyber Web Scanner" data-link="https://cyberwebscanner.onrender.com">
+    <div class="personal" data-title="Cyber Web Scanner" data-link="https://cyberwebscanner.onrender.com">
       <img src="images/Cyber-Web-Scanner.png" alt="Cyber Web Scanner">
       <h3>Cyber Web Scanner</h3>
       <template>
@@ -381,7 +381,7 @@
       </template>
     </div>
 
-    <div class="project business" data-title="Mochi Chewy" data-link="https://febriosht.github.io/Mochi-Chewy/index.html">
+    <div class="business" data-title="Mochi Chewy" data-link="https://febriosht.github.io/Mochi-Chewy/index.html">
       <img src="images/Mochi Chewy.png" alt="Mochi Chewy">
       <h3>Mochi Chewy</h3>
       <template>
@@ -389,7 +389,7 @@
       </template>
     </div>
 
-    <div class="project business" data-title="Flora Rose Catering" data-link="https://febriosht.github.io/Flora-Rose-Catering/">
+    <div class="business" data-title="Flora Rose Catering" data-link="https://febriosht.github.io/Flora-Rose-Catering/">
       <img src="images/Flora Rose Catering.png" alt="Flora Rose Catering">
       <h3>Flora Rose Catering</h3>
       <template>
@@ -397,7 +397,7 @@
       </template>
     </div>
 
-    <div class="project business" data-title="Cassa Juara" data-link="https://profile-pos.vercel.app/">
+    <div class="business" data-title="Cassa Juara" data-link="https://profile-pos.vercel.app/">
       <img src="images/Cassa-Juara.png" alt="Cassa Juara">
       <h3>Cassa Juara</h3>
       <template>
@@ -406,7 +406,7 @@
       </template>
     </div>
 
-    <div class="project business" data-title="Cassa Juara" data-link="https://cassa-juara.vercel.app/">
+    <div class="business" data-title="Cassa Juara" data-link="https://cassa-juara.vercel.app/">
       <img src="images/Kasir.png" alt="Sistem Point of Sale (POS)">
       <h3>Profile (POS) Swakarsa Digital Indonesia</h3>
       <template>
@@ -576,8 +576,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const personalCount = document.querySelectorAll('#project .project.personal').length;
     
     document.querySelector('[data-filter="all"] .count').textContent = allCount;
-    document.querySelector('[data-filter="project business"] .count').textContent = businessCount;
-    document.querySelector('[data-filter="project personal"] .count').textContent = personalCount;
+    document.querySelector('[data-filter="business"] .count').textContent = businessCount;
+    document.querySelector('[data-filter="personal"] .count').textContent = personalCount;
   }
   
   // Panggil fungsi untuk pertama kali
