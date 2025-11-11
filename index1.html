@@ -576,8 +576,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const personalCount = document.querySelectorAll('#project .project.personal').length;
     
     document.querySelector('[data-filter="all"] .count').textContent = allCount;
-    document.querySelector('[data-filter="business"] .count').textContent = businessCount;
-    document.querySelector('[data-filter="personal"] .count').textContent = personalCount;
+    document.querySelector('[data-filter="project business"] .count').textContent = businessCount;
+    document.querySelector('[data-filter="project personal"] .count').textContent = personalCount;
   }
   
   // Panggil fungsi untuk pertama kali
